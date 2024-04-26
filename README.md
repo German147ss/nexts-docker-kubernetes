@@ -3,10 +3,13 @@
 Este proyecto es una plantilla inicial para aprender y construir aplicaciones con [Next.js](https://nextjs.org/learn).
 
 ## Requisitos
-[Docker] (https://docs.docker.com/get-docker/)
-[Kubernetes] (https://kubernetes.io/es/docs/home/)
-[Minikube] (https://minikube.sigs.k8s.io/docs)
-[Kubectl] (https://kubernetes.io/es/docs/tasks/tools/install-kubectl/)
+[Docker](https://docs.docker.com/get-docker/)
+
+[Kubernetes](https://kubernetes.io/es/docs/home/)
+
+[Minikube](https://minikube.sigs.k8s.io/docs)
+
+[Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/)
 
 ## Problema
 
@@ -42,7 +45,6 @@ Y luego corre el proyecto:
 
 ```
 npm run dev
-
 ```
 
 Esto funciona correctamente en un entorno local, pero al desplegar la aplicación en un clúster de Kubernetes, la variable de entorno `NEXT_PUBLIC_API_URL` no es accesible.
