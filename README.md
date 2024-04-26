@@ -61,11 +61,16 @@ minikube start
 
 2. Crear un archivo `deployment.yaml` para desplegar la aplicación en el clúster de Kubernetes, este ya se encuentra en el repositorio, puede ser modificado hasta llegar a la solución.
 
-3. Aplicar el archivo `deployment.yaml`:
+3. Aplicar el archivo `deployment.yaml` y `service.yaml` en el clúster de Kubernetes:
 
 ```
 kubectl apply -f deployment.yaml
 ```
+
+```
+kubectl apply -f service.yaml
+```
+
 - Actualizamos el deployment de forma forzada
 ```
 kubectl rollout restart deployment nextjs-app
@@ -94,7 +99,7 @@ echo $NEXT_PUBLIC_API_URL
 ```
 eval $(minikube docker-env)
 ```
-8. Obtener url del serivicio
+8. Obtener url del servicio
 
 ```
 minikube service nextjs-service --url

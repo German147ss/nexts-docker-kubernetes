@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nextjs-app
+  name: nextjs-app-new
 spec:
   replicas: 1
   selector:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nextjs
-        image: nextjs-app:latest
+        image: nextjs-app-new:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
