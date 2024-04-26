@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nextjs
+  template:
+    metadata:
+      labels:
+        app: nextjs
+    spec:
+      containers:
+      - name: nextjs
+        image: nextjs-app:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+        args:
+        - npm
+        - start
+        - --NEXT_PUBLIC_ORDER_SERVICE_URL
+        FromConfigMapKeyRef:
+          - name: nextjs-env
+          - key: NEXT_PUBLIC_ORDER_SERVICE_URL
+        env:
+        - name: NEXT_PUBLIC_ORDER_SERVICE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: nextjs-env
+              key: NEXT_PUBLIC_ORDER_SERVICE_URL
