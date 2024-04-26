@@ -39,8 +39,6 @@ NEXT_PUBLIC_API_URL=https://pokeapi.co/api/v2/pokemon/ditto
 
 Y luego corre el proyecto:
 
-```
-
 
 ```
 npm run dev
@@ -83,6 +81,17 @@ kubectl exec -it <pod-name> -- /bin/sh
 
 ```
 echo $NEXT_PUBLIC_API_URL
+```
+
+7. Conecta tu Docker CLI al daemon de Docker en Minikube
+    
+```
+eval $(minikube docker-env)
+```
+8. Obtener url del serivicio
+
+```
+minikube service nextjs-service --url
 ```
 
 ## Diagrama 

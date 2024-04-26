@@ -18,16 +18,6 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
-        args:
-        - npm
-        - start
-        - --NEXT_PUBLIC_API_URL
-        FromConfigMapKeyRef:
-          - name: nextjs-env
-          - key: NEXT_PUBLIC_API_URL
         env:
         - name: NEXT_PUBLIC_API_URL
-          valueFrom:
-            configMapKeyRef:
-              name: nextjs-env
-              key: NEXT_PUBLIC_API_URL
+          value: http://api-service:5000
