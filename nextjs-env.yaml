@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: nextjs-env
 data:
-  NEXT_PUBLIC_ORDER_SERVICE_URL: "https://sellers-back-office-be.development.fravega.com/api/v1"
+  NEXT_PUBLIC_EXAMPLE_URL: "https://pokeapi.co/api/v2/pokemon/ditto"

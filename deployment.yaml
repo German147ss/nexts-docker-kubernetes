@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nextjs-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: nextjs
@@ -21,13 +21,13 @@ spec:
         args:
         - npm
         - start
-        - --NEXT_PUBLIC_ORDER_SERVICE_URL
+        - --NEXT_PUBLIC_API_URL
         FromConfigMapKeyRef:
           - name: nextjs-env
-          - key: NEXT_PUBLIC_ORDER_SERVICE_URL
+          - key: NEXT_PUBLIC_API_URL
         env:
-        - name: NEXT_PUBLIC_ORDER_SERVICE_URL
+        - name: NEXT_PUBLIC_API_URL
           valueFrom:
             configMapKeyRef:
               name: nextjs-env
-              key: NEXT_PUBLIC_ORDER_SERVICE_URL
+              key: NEXT_PUBLIC_API_URL
