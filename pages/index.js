@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css';
 
 export default function Home() {
   const publicApiUrl = process.env.NEXT_PUBLIC_API_URL;
-console.log(hola);
+  console.log(publicApiUrl);
   return (
     <div>
       <p>{publicApiUrl}</p>

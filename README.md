@@ -3,10 +3,10 @@
 Este proyecto es una plantilla inicial para aprender y construir aplicaciones con [Next.js](https://nextjs.org/learn).
 
 ## Requisitos
-Docker
-Kubernetes
-Minikube
-Kubectl
+[Docker] (https://docs.docker.com/get-docker/)
+[Kubernetes] (https://kubernetes.io/es/docs/home/)
+[Minikube] (https://minikube.sigs.k8s.io/docs)
+[Kubectl] (https://kubernetes.io/es/docs/tasks/tools/install-kubectl/)
 
 ## Problema
 
@@ -29,6 +29,61 @@ Explorar alternativas para la correcta inyección de variables de entorno en el 
 1. Revisar la configuración actual del `deployment.yaml` para asegurarnos de que las variables de entorno están definidas correctamente.
 2. Investigar métodos recomendados por la comunidad de Kubernetes para la gestión de variables de entorno en aplicaciones en contenedores.
 3. Implementar la solución y verificar que `NEXT_PUBLIC_API_URL` es accesible dentro de la aplicación.
+
+## Pruebas en entorno local
+Crear un archivo .env en la raíz del proyecto con la siguiente variable de entorno:
+
+```
+NEXT_PUBLIC_API_URL=https://pokeapi.co/api/v2/pokemon/ditto
+```
+
+Y luego corre el proyecto:
+
+```
+
+
+```
+npm run dev
+
+```
+
+Esto funciona correctamente en un entorno local, pero al desplegar la aplicación en un clúster de Kubernetes, la variable de entorno `NEXT_PUBLIC_API_URL` no es accesible.
+
+## Pruebas en entorno producción
+
+Para simular el despliegue de la aplicación en un clúster de Kubernetes, utilizaremos Minikube, un entorno local de Kubernetes que nos permite probar nuestras aplicaciones en un entorno similar al de producción.
+
+1. Iniciar Minikube:
+
+``` 
+minikube start
+```
+
+2. Crear un archivo `deployment.yaml` para desplegar la aplicación en el clúster de Kubernetes, este ya se encuentra en el repositorio, puede ser modificado hasta llegar a la solución.
+
+3. Aplicar el archivo `deployment.yaml`:
+
+```
+kubectl apply -f deployment.yaml
+```
+
+4. Verificar que la aplicación se ha desplegado correctamente:
+
+```
+kubectl get pods
+```
+
+5. Acceder al pod de la aplicación:
+
+```
+kubectl exec -it <pod-name> -- /bin/sh
+```
+
+6. Dentro del pod, verificar que la variable de entorno `NEXT_PUBLIC_API_URL` es accesible:
+
+```
+echo $NEXT_PUBLIC_API_URL
+```
 
 ## Diagrama 
 
