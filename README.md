@@ -66,6 +66,10 @@ minikube start
 ```
 kubectl apply -f deployment.yaml
 ```
+- Actualizamos el deployment de forma forzada
+```
+kubectl rollout restart deployment nextjs-app
+```
 
 4. Verificar que la aplicación se ha desplegado correctamente:
 
@@ -95,6 +99,7 @@ eval $(minikube docker-env)
 ```
 minikube service nextjs-service --url
 ```
+
 
 ## Diagrama 
 
